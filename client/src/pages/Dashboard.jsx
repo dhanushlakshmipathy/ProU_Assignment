@@ -108,12 +108,40 @@ const Dashboard = () => {
                                     <p className="font-medium text-gray-900 dark:text-dark-text-primary">{task.title}</p>
                                     <p className="text-xs text-gray-500 dark:text-dark-text-secondary">Due: {new Date(task.dueDate).toLocaleDateString()}</p>
                                 </div>
-                                <span className={`px-2 py-1 rounded text-xs font-medium ${task.status === 'DONE' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300' :
-                                    task.status === 'IN_PROGRESS' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300' :
-                                        'bg-gray-200 dark:bg-dark-border text-gray-800 dark:text-dark-text-secondary'
-                                    }`}>
-                                    {task.status.replace('_', ' ')}
-                                </span>
+                                <select
+                                    value={task.status}
+                                    onChange={async (e) => {
+                                        const newStatus = e.target.value;
+                                        try {
+                                            // Optimistic update
+                                            const updatedTasks = tasks.map(t =>
+                                                (t.id === task.id || t._id === task._id) ? { ...t, status: newStatus } : t
+                                            );
+                                            setTasks(updatedTasks);
+
+                                            // Update stats
+                                            setStats(prev => ({
+                                                ...prev,
+                                                pendingTasks: updatedTasks.filter(t => t.status === 'TODO' || t.status === 'IN_PROGRESS').length,
+                                                completedTasks: updatedTasks.filter(t => t.status === 'DONE').length
+                                            }));
+
+                                            await api.put(`/tasks/${task.id || task._id}`, { status: newStatus });
+                                        } catch (error) {
+                                            console.error('Failed to update status:', error);
+                                            // Revert on error
+                                            setTasks(tasks);
+                                        }
+                                    }}
+                                    className={`px-2 py-1 rounded text-xs font-medium border-none focus:ring-2 focus:ring-indigo-500 cursor-pointer ${task.status === 'DONE' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300' :
+                                            task.status === 'IN_PROGRESS' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300' :
+                                                'bg-gray-200 dark:bg-dark-border text-gray-800 dark:text-dark-text-secondary'
+                                        }`}
+                                >
+                                    <option value="TODO">To Do</option>
+                                    <option value="IN_PROGRESS">In Progress</option>
+                                    <option value="DONE">Done</option>
+                                </select>
                             </div>
                         ))}
                         {tasks.length === 0 && <p className="text-gray-500 dark:text-dark-text-secondary text-sm">No tasks found.</p>}
