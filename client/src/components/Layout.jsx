@@ -35,6 +35,12 @@ const Layout = ({ children }) => {
                     {navItems.map((item) => {
                         const Icon = item.icon;
                         const isActive = location.pathname === item.path;
+
+                        // Hide Employees link for non-admins
+                        if (item.path === '/employees' && user?.role !== 'ADMIN') {
+                            return null;
+                        }
+
                         return (
                             <Link
                                 key={item.path}

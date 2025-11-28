@@ -3,6 +3,11 @@ const prisma = new PrismaClient();
 
 exports.getAllEmployees = async (req, res) => {
     try {
+        // If user is not ADMIN, return empty array (or restrict access)
+        if (req.user.role !== 'ADMIN') {
+            return res.json([]);
+        }
+
         const employees = await prisma.employee.findMany({
             include: { tasks: true }
         });

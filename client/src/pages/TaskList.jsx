@@ -9,9 +9,12 @@ import { useAuth } from '../context/AuthContext';
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [statusFilter, setStatusFilter] = useState('ALL');
+    const [employeeFilter, setEmployeeFilter] = useState('ALL');
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingTask, setEditingTask] = useState(null);
+    const [employees, setEmployees] = useState([]);
     const { user } = useAuth();
     const isAdmin = user?.role === 'ADMIN';
 
@@ -21,11 +24,17 @@ const TaskList = () => {
 
     const fetchTasks = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/tasks');
-            setTasks(response.data);
+            const [tasksRes, employeesRes] = await Promise.all([
+                axios.get('http://localhost:5000/api/tasks'),
+                isAdmin ? axios.get('http://localhost:5000/api/employees') : Promise.resolve({ data: [] })
+            ]);
+            setTasks(tasksRes.data);
+            if (isAdmin) {
+                setEmployees(employeesRes.data);
+            }
             setLoading(false);
         } catch (error) {
-            console.error('Error fetching tasks:', error);
+            console.error('Error fetching data:', error);
             setLoading(false);
         }
     };
@@ -60,10 +69,14 @@ const TaskList = () => {
         }
     };
 
-    const filteredTasks = tasks.filter(task =>
-        task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (task.description && task.description.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    const filteredTasks = tasks.filter(task => {
+        const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (task.description && task.description.toLowerCase().includes(searchTerm.toLowerCase()));
+        const matchesStatus = statusFilter === 'ALL' || task.status === statusFilter;
+        const matchesEmployee = employeeFilter === 'ALL' || (task.employeeId === employeeFilter);
+
+        return matchesSearch && matchesStatus && matchesEmployee;
+    });
 
     if (loading) {
         return <div className="p-6 text-center dark:text-dark-text-secondary">Loading tasks...</div>;
@@ -83,6 +96,30 @@ const TaskList = () => {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
+                </div>
+                <div className="flex gap-2 mr-4">
+                    <select
+                        className="px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
+                        value={statusFilter}
+                        onChange={(e) => setStatusFilter(e.target.value)}
+                    >
+                        <option value="ALL">All Status</option>
+                        <option value="TODO">To Do</option>
+                        <option value="IN_PROGRESS">In Progress</option>
+                        <option value="DONE">Done</option>
+                    </select>
+                    {isAdmin && (
+                        <select
+                            className="px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
+                            value={employeeFilter}
+                            onChange={(e) => setEmployeeFilter(e.target.value)}
+                        >
+                            <option value="ALL">All Employees</option>
+                            {employees.map(emp => (
+                                <option key={emp.id} value={emp.id}>{emp.name}</option>
+                            ))}
+                        </select>
+                    )}
                 </div>
                 {isAdmin && (
                     <button

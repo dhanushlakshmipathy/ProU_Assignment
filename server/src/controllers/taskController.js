@@ -3,8 +3,21 @@ const prisma = new PrismaClient();
 
 exports.getAllTasks = async (req, res) => {
     try {
+        let where = {};
+
+        // If user is not ADMIN, only return tasks assigned to them
+        if (req.user.role !== 'ADMIN') {
+            // If for some reason req.employee is missing (e.g. data inconsistency), return empty
+            if (!req.employee) {
+                return res.json([]);
+            }
+            where = { employeeId: req.employee.id };
+        }
+
         const tasks = await prisma.task.findMany({
-            include: { employee: true }
+            where,
+            include: { employee: true },
+            orderBy: { dueDate: 'asc' } // Optional: sort by due date
         });
         res.json(tasks);
     } catch (error) {
