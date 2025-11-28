@@ -124,16 +124,14 @@ npm run dev
 -   `DELETE /api/tasks/:id` - Delete a task
 
 ## 📸 Screenshots
-    ![screenshot](Example_photos/01.jpg)
-    ![screenshot](Example_photos/02.jpg)
-    ![screenshot](Example_photos/03.jpg)
-    ![screenshot](Example_photos/04.jpg)
-    ![screenshot](Example_photos/05.jpg)
-    ![screenshot](Example_photos/06.jpg)
-    ![screenshot](Example_photos/mongo1.jpg)
-    ![screenshot](Example_photos/mongo2.jpg)
-    ![screenshot](Example_photos/mongo3.jpg)
-## 📝 Assumptions & Design Decisions
+    ![screenshot](Examlple_photos/01.jpg)
+    ![screenshot](Examlple_photos/02.jpg)
+    ![screenshot](Examlple_photos/04.jpg)
+    ![screenshot](Examlple_photos/05.jpg)
+    ![screenshot](Examlple_photos/06.jpg)
+    ![screenshot](Examlple_photos/mongo1.jpg)
+    ![screenshot](Examlple_photos/mongo2.jpg)
+    ![screenshot](Examlple_photos/mongo3.jpg)
 -   **Database**: MongoDB was chosen for its flexibility with JSON-like documents, fitting well with the Node.js ecosystem.
 -   **Styling**: Tailwind CSS was selected for its utility-first approach, enabling rapid UI development and easy dark mode implementation.
 -   **State**: Used React Context for global state (Auth, Theme) to avoid prop drilling, keeping the architecture simple without Redux.
