@@ -148,10 +148,6 @@ npm run dev
 
 =======
 
-    ![01](https://github.com/user-attachments/assets/cfa49660-749a-4162-9f80-03bb634e35d0)
-
- 
->>>>>>> 5cdcce051c0937e52cefc509eeebbad3496f9ee8
 -   **Database**: MongoDB was chosen for its flexibility with JSON-like documents, fitting well with the Node.js ecosystem.
 -   **Styling**: Tailwind CSS was selected for its utility-first approach, enabling rapid UI development and easy dark mode implementation.
 -   **State**: Used React Context for global state (Auth, Theme) to avoid prop drilling, keeping the architecture simple without Redux.
