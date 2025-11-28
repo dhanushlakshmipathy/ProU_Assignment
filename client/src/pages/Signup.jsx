@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { UserPlus } from 'lucide-react';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', password: '', role: 'EMPLOYEE' });
+    const [formData, setFormData] = useState({ name: '', email: '', password: '' });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -80,22 +80,11 @@ const Signup = () => {
                                 name="password"
                                 type="password"
                                 required
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-dark-border placeholder-gray-500 dark:placeholder-dark-text-secondary text-gray-900 dark:text-dark-text-primary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-white dark:bg-dark-bg"
+                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-dark-border placeholder-gray-500 dark:placeholder-dark-text-secondary text-gray-900 dark:text-dark-text-primary rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-white dark:bg-dark-bg"
                                 placeholder="Password"
                                 value={formData.password}
                                 onChange={handleChange}
                             />
-                        </div>
-                        <div>
-                            <select
-                                name="role"
-                                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-dark-border placeholder-gray-500 dark:placeholder-dark-text-secondary text-gray-900 dark:text-dark-text-primary rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-white dark:bg-dark-bg"
-                                value={formData.role}
-                                onChange={handleChange}
-                            >
-                                <option value="EMPLOYEE">Employee</option>
-                                <option value="ADMIN">Admin</option>
-                            </select>
                         </div>
                     </div>
 

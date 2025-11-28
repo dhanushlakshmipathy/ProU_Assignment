@@ -1,0 +1,6 @@
+--- DIAGNOSTIC REPORT ---
+Checking for email: lakshmipathydhanush@gmail.com
+[OK] Employee found: ID=69297ffee49079ba45c1985b, Name="Dhanush ", Role=Developer
+[OK] User found: ID=69298046e49079ba45c1985c, Name="Dhanush ", Role=EMPLOYEE
+[INFO] Tasks assigned to Employee ID 69297ffee49079ba45c1985b: 1
+ - Task: "LOGIN BUG FIX", Status=TODO, ID=692980e1e49079ba45c1985f

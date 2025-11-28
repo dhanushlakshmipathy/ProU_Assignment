@@ -7,24 +7,31 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
 exports.register = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password } = req.body;
 
-        // Check if user exists
+        // Check if user exists in User table
         const existingUser = await prisma.user.findUnique({ where: { email } });
         if (existingUser) {
             return res.status(400).json({ error: 'User already exists' });
         }
 
+        // Check if email exists in Employee table (Restricted Signup)
+        const employeeRecord = await prisma.employee.findUnique({ where: { email } });
+        if (!employeeRecord) {
+            return res.status(403).json({ error: 'Access denied. You must be added as an employee by an admin first.' });
+        }
+
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create user
+        // Create user with role from Employee record
         const user = await prisma.user.create({
             data: {
                 name,
                 email,
                 password: hashedPassword,
-                role: role || 'EMPLOYEE'
+                password: hashedPassword,
+                role: 'EMPLOYEE' // System role is always EMPLOYEE for staff
             }
         });
 
