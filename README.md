@@ -122,11 +122,14 @@ npm run dev
 -   `POST /api/tasks` - Create a new task
 -   `PUT /api/tasks/:id` - Update task status/details
 -   `DELETE /api/tasks/:id` - Delete a task
-
+##TEST ACCOUNTS
+    Email:testadmin@gmail.com
+    password:test
+    ----------------------
+    Email:testuser1@gmail.com
+    password:test
+  
 ## 📸 Screenshots
-<<<<<<< HEAD
-   # Screenshots
-
 ### Main UI Screens
 <p float="left">
   <img src="Example_photos/01.jpg" width="250" />
@@ -142,11 +145,6 @@ npm run dev
   <img src="Example_photos/mongo2.jpg" width="250" />
   <img src="Example_photos/mongo3.jpg" width="250" />
 </p>
-
-
-
-
-=======
 
 -   **Database**: MongoDB was chosen for its flexibility with JSON-like documents, fitting well with the Node.js ecosystem.
 -   **Styling**: Tailwind CSS was selected for its utility-first approach, enabling rapid UI development and easy dark mode implementation.
