@@ -20,6 +20,7 @@ This guide explains how to deploy the ProU Assignment application.
         -   `CLIENT_URL`: The URL of your frontend (you will get this after deploying frontend, or use `*` initially).
 6.  **Deploy**: Click "Create Web Service".
 7.  **Copy URL**: Once deployed, copy the backend URL (e.g., `https://prou-backend.onrender.com`).
+The `JWT_SECRET` is an environment variable you configured during backend deployment on Render. You can find its value in your Render dashboard under the environment variables for your `prou-backend` service.
 
 ## 2. Frontend Deployment (Vercel)
 
