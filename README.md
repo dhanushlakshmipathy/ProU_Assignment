@@ -130,9 +130,11 @@ npm run dev
     Email:testuser1@gmail.com
     password:test
 ### Sreen Recording URL
-<li src="https://drive.google.com/file/d/15zw6UTE5uDv1qMHq7dWCasQsvyZ3nPYR/view?usp=sharing" alt="Watch here"> 
-## 📸 Screenshots
-### Main UI Screens
+  <a href="https://drive.google.com/file/d/15zw6UTE5uDv1qMHq7dWCasQsvyZ3nPYR/view?usp=sharing" target="_blank">
+    Watch here
+  </a>
+### 📸 Screenshots
+
 <p float="left">
   <img src="Example_photos/01.jpg" width="250" />
   <img src="Example_photos/02.jpg" width="250" />
