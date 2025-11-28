@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../lib/api';
 
 const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
     const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
     useEffect(() => {
         const fetchEmployees = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/employees');
+                const response = await api.get('/employees');
                 setEmployees(response.data);
             } catch (err) {
                 console.error('Failed to fetch employees for dropdown', err);
@@ -46,9 +46,9 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
 
         try {
             if (initialData) {
-                await axios.put(`http://localhost:5000/api/tasks/${initialData.id}`, formData);
+                await api.put(`/tasks/${initialData.id}`, formData);
             } else {
-                await axios.post('http://localhost:5000/api/tasks', formData);
+                await api.post('/tasks', formData);
             }
             onSuccess();
             onClose();

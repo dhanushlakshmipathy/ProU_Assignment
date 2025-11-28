@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../lib/api';
 
 const EmployeeForm = ({ onClose, onSuccess }) => {
     const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ const EmployeeForm = ({ onClose, onSuccess }) => {
         setError('');
 
         try {
-            await axios.post('http://localhost:5000/api/employees', formData);
+            await api.post('/employees', formData);
             onSuccess();
             onClose();
         } catch (err) {

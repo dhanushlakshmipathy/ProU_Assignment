@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../lib/api';
 import { useAuth } from '../context/AuthContext';
 import { UserPlus } from 'lucide-react';
 
@@ -21,7 +21,7 @@ const Signup = () => {
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+            const response = await api.post('/auth/register', formData);
             login(response.data.user, response.data.token);
             navigate('/');
         } catch (err) {

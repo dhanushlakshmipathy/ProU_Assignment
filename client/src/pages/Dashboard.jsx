@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Users, CheckSquare, Clock, AlertCircle } from 'lucide-react';
-import axios from 'axios';
+import api from '../lib/api';
 
 const StatCard = ({ icon: Icon, label, value, color, subValue }) => (
     <div className="bg-white dark:bg-dark-bg p-6 rounded-xl shadow-sm border border-gray-200 dark:border-dark-border transition-colors duration-200">
@@ -32,8 +32,8 @@ const Dashboard = () => {
         const fetchData = async () => {
             try {
                 const [empRes, taskRes] = await Promise.all([
-                    axios.get('http://localhost:5000/api/employees'),
-                    axios.get('http://localhost:5000/api/tasks')
+                    api.get('/employees'),
+                    api.get('/tasks')
                 ]);
 
                 const empData = empRes.data;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Search, Edit2, Trash2, Calendar, User } from 'lucide-react';
-import axios from 'axios';
+import api from '../lib/api';
 import { cn } from '../lib/utils';
 import Modal from '../components/Modal';
 import TaskForm from '../components/TaskForm';
@@ -25,8 +25,8 @@ const TaskList = () => {
     const fetchTasks = async () => {
         try {
             const [tasksRes, employeesRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/tasks'),
-                isAdmin ? axios.get('http://localhost:5000/api/employees') : Promise.resolve({ data: [] })
+                api.get('/tasks'),
+                isAdmin ? api.get('/employees') : Promise.resolve({ data: [] })
             ]);
             setTasks(tasksRes.data);
             if (isAdmin) {
@@ -61,7 +61,7 @@ const TaskList = () => {
     const handleDeleteTask = async (id) => {
         if (window.confirm('Are you sure you want to delete this task?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+                await api.delete(`/tasks/${id}`);
                 fetchTasks();
             } catch (error) {
                 console.error('Error deleting task:', error);

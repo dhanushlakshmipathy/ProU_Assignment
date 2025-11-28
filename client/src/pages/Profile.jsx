@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { User, Mail, Phone, Building, Shield, Save, Briefcase } from 'lucide-react';
-import axios from 'axios';
+import api from '../lib/api';
 import { useAuth } from '../context/AuthContext';
 
 const Profile = () => {
@@ -25,7 +25,7 @@ const Profile = () => {
 
     const fetchProfile = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/auth/profile');
+            const response = await api.get('/auth/profile');
             setUser(response.data);
             setFormData(response.data);
             setLoading(false);
@@ -44,7 +44,7 @@ const Profile = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.put('http://localhost:5000/api/auth/profile', formData);
+            const response = await api.put('/auth/profile', formData);
             setUser(response.data);
             setFormData(response.data);
             setIsEditing(false);

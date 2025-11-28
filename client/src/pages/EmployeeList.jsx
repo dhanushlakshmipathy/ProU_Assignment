@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Search, Edit2, Trash2, Mail, Phone, Briefcase } from 'lucide-react';
-import axios from 'axios';
+import api from '../lib/api';
 import Modal from '../components/Modal';
 import EmployeeForm from '../components/EmployeeForm';
 import { useAuth } from '../context/AuthContext';
@@ -19,7 +19,7 @@ const EmployeeList = () => {
 
     const fetchEmployees = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/employees');
+            const response = await api.get('/employees');
             setEmployees(response.data);
             setLoading(false);
         } catch (error) {
@@ -31,7 +31,7 @@ const EmployeeList = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this employee?')) {
             try {
-                await axios.delete(`http://localhost:5000/api/employees/${id}`);
+                await api.delete(`/employees/${id}`);
                 fetchEmployees();
             } catch (error) {
                 console.error('Error deleting employee:', error);
