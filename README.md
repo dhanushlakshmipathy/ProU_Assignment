@@ -124,8 +124,15 @@ npm run dev
 -   `DELETE /api/tasks/:id` - Delete a task
 
 ## 📸 Screenshots
-*(Please add screenshots of the Dashboard, Task List, and Dark Mode here)*
-
+    Example_photos/01.jpg
+    Example_photos/02.jpg
+    Example_photos/03.jpg
+    Example_photos/04.jpg
+    Example_photos/05.jpg
+    Example_photos/06.jpg
+    Example_photos/mongo1.jpg
+    Example_photos/mongo2.jpg
+    Example_photos/mongo3.jpg
 ## 📝 Assumptions & Design Decisions
 -   **Database**: MongoDB was chosen for its flexibility with JSON-like documents, fitting well with the Node.js ecosystem.
 -   **Styling**: Tailwind CSS was selected for its utility-first approach, enabling rapid UI development and easy dark mode implementation.
