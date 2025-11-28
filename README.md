@@ -128,16 +128,16 @@ npm run dev
    # Screenshots
 
 ### Main UI Screens
-![01](../Example_photos/01.jpg)
-![02](../Example_photos/02.jpg)
-![04](../Example_photos/04.jpg)
-![05](../Example_photos/05.jpg)
-![06](../Example_photos/06.jpg)
+![01](Example_photos/01.jpg)
+![02](Example_photos/02.jpg)
+![04](Example_photos/04.jpg)
+![05](Example_photos/05.jpg)
+![06](Example_photos/06.jpg)
 
 ### MongoDB Screens
-![mongo1](../Example_photos/mongo1.jpg)
-![mongo2](../Example_photos/mongo2.jpg)
-![mongo3](../Example_photos/mongo3.jpg)
+![mongo1](Example_photos/mongo1.jpg)
+![mongo2](Example_photos/mongo2.jpg)
+![mongo3](Example_photos/mongo3.jpg)
 
 ### Extra
 ![O3](../Example_photos/O3.jpg)
