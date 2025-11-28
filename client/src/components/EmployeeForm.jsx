@@ -41,12 +41,12 @@ const EmployeeForm = ({ onClose, onSuccess }) => {
             )}
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Full Name</label>
                 <input
                     type="text"
                     name="name"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="e.g. John Doe"
@@ -54,12 +54,12 @@ const EmployeeForm = ({ onClose, onSuccess }) => {
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Email Address</label>
                 <input
                     type="email"
                     name="email"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
@@ -67,12 +67,12 @@ const EmployeeForm = ({ onClose, onSuccess }) => {
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Phone Number</label>
                 <input
                     type="tel"
                     name="phone"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="123-456-7890"
@@ -81,11 +81,11 @@ const EmployeeForm = ({ onClose, onSuccess }) => {
 
             <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Department</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Department</label>
                     <select
                         name="department"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                         value={formData.department}
                         onChange={handleChange}
                     >
@@ -99,12 +99,12 @@ const EmployeeForm = ({ onClose, onSuccess }) => {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Role</label>
                     <input
                         type="text"
                         name="role"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                         value={formData.role}
                         onChange={handleChange}
                         placeholder="e.g. Developer"

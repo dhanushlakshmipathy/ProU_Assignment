@@ -68,12 +68,12 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
             )}
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Task Title</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Task Title</label>
                 <input
                     type="text"
                     name="title"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                     value={formData.title}
                     onChange={handleChange}
                     placeholder="e.g. Fix Login Bug"
@@ -81,12 +81,12 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Description</label>
                 <textarea
                     name="description"
                     required
                     rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                     value={formData.description}
                     onChange={handleChange}
                     placeholder="Describe the task..."
@@ -95,10 +95,10 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
 
             <div className="grid grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Status</label>
                     <select
                         name="status"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                         value={formData.status}
                         onChange={handleChange}
                     >
@@ -109,12 +109,12 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Due Date</label>
                     <input
                         type="date"
                         name="dueDate"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                         value={formData.dueDate}
                         onChange={handleChange}
                     />
@@ -122,10 +122,10 @@ const TaskForm = ({ onClose, onSuccess, initialData = null }) => {
             </div>
 
             <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Assign To (Optional)</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-dark-text-secondary mb-1">Assign To (Optional)</label>
                 <select
                     name="employeeId"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all bg-white dark:bg-dark-bg text-gray-900 dark:text-dark-text-primary"
                     value={formData.employeeId}
                     onChange={handleChange}
                 >
